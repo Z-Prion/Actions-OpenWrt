@@ -106,7 +106,7 @@ jobs:
         if:  env.UPLOAD_CONFIG_DIR == 'true'
         with:
           name: OpenWrt_config${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-          file: openwrt/.config
+          path: openwrt
           
       - name: Download package
         id: package
