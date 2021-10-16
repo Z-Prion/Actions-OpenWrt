@@ -66,8 +66,7 @@ jobs:
           git clone https://gitee.com/zprion/lede-20200416.git openwrt/target/linux/ar71xx/image/test
           cd openwrt/target/linux/ar71xx/image/test
           mv tiny-tp-link.mk ..
-          cd ..
-          mv tiny-tp-link.mk image
+          cd 
           
           git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git openwrt/package/mentohust
           git clone https://github.com/BoringCat/luci-app-mentohust.git openwrt/package/luci-app-mentohust
