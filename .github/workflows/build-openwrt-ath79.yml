@@ -61,8 +61,14 @@ jobs:
         run: |
           df -hT $PWD
           git clone $REPO_URL -b $REPO_BRANCH openwrt
+          
           rm -rf openwrt/target/linux/ar71xx/image/tiny-tp-link.mk
-          git clone https://gitee.com/zprion/lede-20200416.git openwrt/target/linux/ar71xx/image
+          git clone https://gitee.com/zprion/lede-20200416.git openwrt/target/linux/ar71xx/image/test
+          cd openwrt/target/linux/ar71xx/image/test
+          mv tiny-tp-link.mk ..
+          cd ..
+          mv tiny-tp-link.mk image
+          
           git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git openwrt/package/mentohust
           git clone https://github.com/BoringCat/luci-app-mentohust.git openwrt/package/luci-app-mentohust
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
