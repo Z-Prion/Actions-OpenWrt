@@ -101,12 +101,18 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
+      - name: remove config directory
+        run:
+         cd openwrt 
+         mkdir cconfig
+         cp .config cconfig
+         
       - name: Upload config directory
         uses: actions/upload-artifact@main
         if:  env.UPLOAD_CONFIG_DIR == 'true'
         with:
           name: OpenWrt_config${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-          path: openwrt
+          path: openwrt/cconfig
           
       - name: Download package
         id: package
